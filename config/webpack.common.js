@@ -19,10 +19,10 @@ module.exports = {
    *
    * Where Webpack outputs the assets and bundles.
    */
-  output: {
-    path: paths.build,
-    filename: '[path][name].bundle.js',
-  },
+  // output: {
+  //   path: paths.build,
+  //   filename: '[path][name].bundle.js',
+  // },
 
   /**
    * Plugins
@@ -36,7 +36,7 @@ module.exports = {
      * Removes/cleans build folders and unused assets when rebuilding.
      * Removes files also when you start dev server
      */
-    // new CleanWebpackPlugin(),
+    new CleanWebpackPlugin(),
 
     /**
      * CopyWebpackPlugin

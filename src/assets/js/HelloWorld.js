@@ -1,3 +1,3 @@
 export default function HelloWorld() {
-  return 'Rahul Soni!'
+  return 'Rahul Soni.'
 }

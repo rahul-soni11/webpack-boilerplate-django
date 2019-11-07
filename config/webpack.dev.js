@@ -10,7 +10,9 @@ module.exports = merge(common, {
    * Set the mode to development or production.
    */
   mode: 'development',
-
+  output: {
+    publicPath: paths.public_path //our Main S3 Bucket/tenant_name/
+  },
   /**
    * Devtool
    *
@@ -24,14 +26,18 @@ module.exports = merge(common, {
    * Spin up a server for quick development.
    */
   devServer: {
-    contentBase: paths.build,
-    open: true,
+    // contentBase: paths.build,
+    // open: true,
+    // port: 8080,
     compress: true,
     hot: true,
-    port: 8080,
     headers: {
-      'Access-Control-Allow-Origin': '*'
+      'Access-Control-Allow-Origin': '*' //to allow access of font files ect.
     },
+    allowedHosts: [ //required for HMR unless it will give error chrome console
+      'missindiadesignersarees.local',
+    ]
+
   },
 
   plugins: [
