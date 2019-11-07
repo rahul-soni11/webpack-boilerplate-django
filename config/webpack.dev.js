@@ -29,6 +29,9 @@ module.exports = merge(common, {
     compress: true,
     hot: true,
     port: 8080,
+    headers: {
+      'Access-Control-Allow-Origin': '*'
+    },
   },
 
   plugins: [

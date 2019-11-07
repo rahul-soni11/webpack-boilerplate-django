@@ -1,0 +1,26 @@
+{% load render_bundle from webpack_static %}
+{% load get_meta_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    {% block meta %}
+    {% get_meta_tags %}
+    {% endblock %}
+
+    <!-- Template css -->
+    {% render_bundle 'main' 'css' %}
+
+</head>
+
+<body>
+
+    <div id="root"></div>
+
+    {% render_bundle 'main' 'js' %}
+</body>
+
+</html>

@@ -2,6 +2,7 @@ const paths = require('./paths')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+var BundleTracker = require("webpack-bundle-tracker");
 
 module.exports = {
   /**
@@ -33,8 +34,9 @@ module.exports = {
      * CleanWebpackPlugin
      *
      * Removes/cleans build folders and unused assets when rebuilding.
+     * Removes files also when you start dev server
      */
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(),
 
     /**
      * CopyWebpackPlugin
@@ -60,6 +62,16 @@ module.exports = {
     //   template: paths.src + '/template.html', // template file
     //   filename: 'index.html', // output file
     // }),
+
+    /**
+     * Webpack Stats Plugin
+     *
+     * Generats a json file with info of webpack build process
+    */
+    new BundleTracker({
+      path: paths.build,
+      filename: "webpack-stats.json"
+    })
   ],
 
   /**
